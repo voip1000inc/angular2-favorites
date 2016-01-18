@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "module": "system",
+        "moduleResolution": "node",
+        "target": "es5",
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "noEmitOnError": true,
+        "outDir": "dist",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+    "exclude": [
+        "jspm_packages",
+        "node_modules",
+        "**angular2/typings",
+        "typings"
+    ]
+}

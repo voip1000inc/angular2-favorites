@@ -1,0 +1,65 @@
+<div class="ui container">
+    <div class="ui top attached tabular menu">
+        <a class="item active" data-tab="first">First</a>
+        <a class="item" data-tab="second">Second</a>
+    </div>
+    <div class="ui bottom attached tab segment active" data-tab="first">
+        <section class="ui raised padded segment">
+            <h2 class="header">Add a favorite</h2>
+
+            <form class="ui form" #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+                <div class="field">
+                    <label for="url">URL</label>
+                    <input id="url" type="text" placeholder="http://siteilike.com" required [(ngModel)]="current.url" ngControl="url" #url="ngForm">
+                </div>
+
+                <div class="field">
+                    <label for="description">Description</label>
+                    <input id="description" type="text" placeholder="A site that I like..." required [(ngModel)]="current.description" ngControl="description"
+                    #description="ngForm">
+                </div>
+
+                <div class="field">
+                    <div id="categories" class="ui fluid multiple search selection dropdown">
+                        <input type="hidden" name="categories" [(ngModel)]="current.categories">
+                        <i class="dropdown icon"></i>
+
+                        <div class="default text">Categories</div>
+                        <div class="menu">
+                            <div class="item" data-value="1">Option 1</div>
+                            <div class="item" data-value="2">Option 2</div>
+                            <div class="item" data-value="3">Option 3</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="ui button" type="submit" [disabled]="!form.valid">Add</button>
+            </form>
+        </section>
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="second">
+        <section class="ui raised padded segment">
+            <div class="row">
+                <table class="ui celled table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Description</th>
+                            <th>Categories</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="#fav of manager.items; #i = index" (click)="manager.selectItem(i)">
+                            <td>
+                                <input type="checkbox" [checked]="i === manager.selected">
+                            </td>
+                            <td><a [href]="fav.url">{{fav.description || fav.url}}</a></td>
+                            <td>{{fav.categories}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+</div>

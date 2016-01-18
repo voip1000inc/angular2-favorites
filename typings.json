@@ -1,0 +1,8 @@
+{
+  "dependencies": {},
+  "devDependencies": {},
+  "ambientDependencies": {
+    "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#b13a8c64ffd368b4528f222f404f67b4c7d76cfb",
+    "shortid": "github:DefinitelyTyped/DefinitelyTyped/shortid/shortid.d.ts#f1e34355814e30f94e0b80680a6c6863e0b07c32"
+  }
+}
